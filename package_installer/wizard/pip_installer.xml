@@ -33,6 +33,6 @@
         <field name="res_model">pip.installer</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
-        <field name="view_ids" eval="[Command.clear(),  Command.create({'view_mode': 'form', 'view_id': ref('pip_installer.pip_installer_menu_preferences')})]"/>
+        <field name="view_ids" eval="[Command.clear(),  Command.create({'view_mode': 'form', 'view_id': ref('package_installer.pip_installer_menu_preferences')})]"/>
     </record>
 </odoo>
