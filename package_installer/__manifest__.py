@@ -19,8 +19,8 @@
     "depends"      : ['base', 'mail'],
     "data"         : ['security/ir.model.access.csv',
                       'wizard/pip_installer.xml'],
-    "assets"       : {'web.assets_backend': ['pip_installer/static/src/js/pip_installer.js',
-                                             'pip_installer/static/src/xml/pip_installer.xml']},
+    "assets"       : {'web.assets_backend': ['package_installer/static/src/js/pip_installer.js',
+                                             'package_installer/static/src/xml/pip_installer.xml']},
 
     "images"       : ['static/description/banner.gif'],
     "installable"  : True,

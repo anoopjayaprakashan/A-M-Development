@@ -14,7 +14,7 @@ class PipInstaller extends Component {
        this.action = useService("action");
    }
    _onClick_pip_installer() {
-     this.action.doAction('pip_installer.pip_installer_menu_preferences_action');
+     this.action.doAction('package_installer.pip_installer_menu_preferences_action');
    }
 }
 PipInstaller.template = "pip_installer";
