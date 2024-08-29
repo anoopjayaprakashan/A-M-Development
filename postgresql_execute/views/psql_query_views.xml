@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--  Author       :  A & M  -->
+<!--  Copyright(c) :  2024-Present.  -->
+<!--  License      :  LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).  -->
+
+<odoo>
+
+    <record id="psql_query_execute_form" model="ir.ui.view">
+        <field name="name">psql.query.execute.form</field>
+        <field name="model">psql.query.execute</field>
+        <field name="arch" type="xml">
+            <form string="PostgresSQL Query Execute" create="0" delete="0" copy="0">
+                <header>
+                    <field name="data_available" invisible="1"/>
+                    <field name="query_state" widget="statusbar" statusbar_visible="draft,done"/>
+                    <button name="action_execute_query" type="object" string="Execute" class="oe_highlight" invisible="query_state == 'done'"/>
+                    <button name="action_xlsx_download" type="object" invisible="query_state == 'draft' or data_available != True" string="Excel"/>
+                    <button name="action_csv_download" type="object" invisible="query_state == 'draft' or data_available != True" string="Csv"/>
+                    <button name="action_back_to_draft" type="object" string="Back to Draft" invisible="query_state == 'draft'"/>
+                </header>
+                <sheet>
+                    <h4 class="oe_title mb24">
+                        <field name="query_name" required="1" readonly="query_state == 'done'" placeholder="e.g. Query to select user info"/>
+                    </h4>
+                    <h4>
+                        <field name="execute_query" placeholder="Query to Execute" required="1" readonly="query_state == 'done'" style="color: #714b67;"/>
+                    </h4>
+                    <div style="overflow: scroll">
+                        <field name="query_result" type="html" readonly="1" nolabel="1"/>
+                    </div>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="psql_query_execute_tree" model="ir.ui.view">
+        <field name="name">psql.query.execute.tree</field>
+        <field name="model">psql.query.execute</field>
+        <field name="arch" type="xml">
+            <tree string="PostgresSQL Query Execute" duplicate="0" decoration-muted="query_state == 'draft'" decoration-success="query_state == 'done'">
+                <field name="query_name"/>
+                <field string='Created By' name='create_uid' widget="many2one_avatar"/>
+                <field string='Modified By' name='modified_uid' widget="many2one_avatar"/>
+                <field name="query_state" widget='badge' decoration-muted="query_state == 'draft'" decoration-success="query_state == 'done'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_psql_query_execute" model="ir.actions.act_window">
+        <field name="name">PSQL Query</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">psql.query.execute</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Execute PostgresSQL Query's
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="psql_query_execute_root" name="PSQL Query" parent="base.next_id_9" action="action_psql_query_execute"/>
+
+</odoo>
