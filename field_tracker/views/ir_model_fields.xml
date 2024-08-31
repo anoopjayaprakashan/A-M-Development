@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--  Author       :  A & M  -->
+<!--  Copyright(c) :  2024-Present.  -->
+<!--  License      :  LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).  -->
+
+<odoo>
+
+    <record model="ir.actions.act_window" id="ir_model_trackable_fields_action">
+        <field name="name">Trackable Fields</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ir.model.fields</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[("trackable", "=", True), ("model_id", "=", context['active_id'])]</field>
+        <field name="view_id" ref="ir_model_fields_view_tree_trackable"/>
+    </record>
+
+    <record id="ir_model_fields_view_tree_trackable" model="ir.ui.view">
+        <field name="model">ir.model.fields</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom" create="0" delete="0" duplicate="0">
+                <field name="trackable" column_invisible="True"/>
+                <field name="name" readonly="True"/>
+                <field name="field_description" readonly="True"/>
+                <field name="ttype" readonly="True"/>
+                <field name="custom_tracking" widget="boolean_toggle" string="Tracking"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
