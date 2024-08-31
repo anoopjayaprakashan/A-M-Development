@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###################################################################################
 
-# Author       :  A & M
+# Author       :  Anoop
 # Copyright(c) :  2024-Present.
 # License      :  LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
@@ -15,7 +15,7 @@ class IrModel(models.Model):
 
     tracked_field_count = fields.Integer(compute="_compute_tracked_field_count")
 
-    @api.depends("field_id.custom_tracking")
+    @api.depends("field_id.custom_tracker")
     def _compute_tracked_field_count(self):
         for rec in self:
-            rec.tracked_field_count = len(rec.field_id.filtered("custom_tracking"))
+            rec.tracked_field_count = len(rec.field_id.filtered("custom_tracker"))
