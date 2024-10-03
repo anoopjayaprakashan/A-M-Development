@@ -22,7 +22,7 @@
     "assets"       : {'web.assets_backend': ['package_installer/static/src/js/pip_installer.js',
                                              'package_installer/static/src/xml/pip_installer.xml']},
 
-    "images"       : ['static/description/banner.gif'],
+    "images"       : ['static/description/banner.jpg'],
     "installable"  : True,
     "application"  : False,
     "auto_install" : False,
