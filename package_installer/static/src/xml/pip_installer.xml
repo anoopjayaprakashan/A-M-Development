@@ -9,7 +9,7 @@
        <t t-if="env.debug">
             <button role="button" type="button" groups="base.group_no_one"
                     class="px-2 user-select-none dropdown-toggle o-no-caret o-dropdown--narrow"
-                    t-on-click="_onClick_pip_installer"> <i class="fa fa-cubes fa-md px-1"/>
+                    t-on-click="_onClick_pip_installer"> <i class="fa fa-cube fa-lg px-0"/>
             </button>
        </t>
    </t>

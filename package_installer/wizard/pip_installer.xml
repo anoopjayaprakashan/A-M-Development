@@ -28,7 +28,7 @@
         </field>
     </record>
     <record id="pip_installer_menu_preferences_action" model="ir.actions.act_window">
-        <field name="name">PIP Installer</field>
+        <field name="name">Package Installer</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">pip.installer</field>
         <field name="view_mode">form</field>
